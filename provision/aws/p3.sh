@@ -1,7 +1,7 @@
 # Setup Oceananigans.jl
 cd ~/projects
 alias julia=~/projects/julia-1.6.1/bin/julia 
-git clone https://github.com/Oceananigans.jl
+git clone https://github.com/clima/Oceananigans.jl
 cd Oceananigans.jl
 export JULIA_DEPOT_PATH=`pwd`/.julia
 
