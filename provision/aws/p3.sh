@@ -17,3 +17,13 @@ conda install -y cartopy
 conda install -y scipy
 conda install -y --channel=conda-forge cmocean
 
+julia --project=. -e "using Pkg; Pkg.instantiate();"
+julia --project=. -e "using Oceananigans"
+julia --project=. -e 'using Pkg; Pkg.add("DataDeps")'
+julia --project=. -e 'using Pkg; Pkg.add("PyCall")'
+julia --project=. -e 'using PyCall; pyimport_conda("matplotlib.pyplot", "matplotlib")'
+julia --project=. -e 'using PyCall; pyimport_conda("numpy.ma", "numpy")'
+julia --project=. -e 'using PyCall; pyimport_conda("cartopy.crs", "cartopy")'
+julia --project=. -e 'using PyCall; pyimport_conda("cmocean", "cmocean","conda-forge")'
+
+julia --project=. -e 'using Pkg;Pkg.add("Plots");Pkg.add("TimesDates");Pkg.add("SpecialFunctions");Pkg.add("BenchmarkTools")'
