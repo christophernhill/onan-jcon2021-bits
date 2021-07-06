@@ -27,3 +27,7 @@ julia --project=. -e 'using PyCall; pyimport_conda("cartopy.crs", "cartopy")'
 julia --project=. -e 'using PyCall; pyimport_conda("cmocean", "cmocean","conda-forge")'
 
 julia --project=. -e 'using Pkg;Pkg.add("Plots");Pkg.add("TimesDates");Pkg.add("SpecialFunctions");Pkg.add("BenchmarkTools")'
+
+# Missed dependency somewhere needs this for now? 
+cd benchmark 
+julia --project=. -e 'using Pkg;Pkg.add("StructArrays")'
