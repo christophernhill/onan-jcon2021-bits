@@ -12,7 +12,7 @@ bin/spack install openmpi '~atomics+cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~
 
 apt install -y lmod
 source /etc/profile.d/lmod.sh
-spack module lmod refresh
+spack module lmod refresh -y
 # Configureing JUlia for MPI
 # # To set up MPI may need
 # /home/ubuntu/projects/julia-1.6.1/bin/julia -e 'using Libdl; p=dlopen("libmpi", RTLD_LAZY; throw_error=false); p=dlopen("libmpi", RTLD_LAZY; throw_error=false); using Pkg; Pkg.build("MPI"; verbose=true)'
