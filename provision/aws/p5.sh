@@ -8,3 +8,8 @@ sudo apt-get install libssl-dev   # Needed by libevent
 spack compier list
 spack external find
 spack install openmpi +cuda
+
+# Configureing JUlia for MPI
+# # To set up MPI may need
+# /home/ubuntu/projects/julia-1.6.1/bin/julia -e 'using Libdl; p=dlopen("libmpi", RTLD_LAZY; throw_error=false); p=dlopen("libmpi", RTLD_LAZY; throw_error=false); using Pkg; Pkg.build("MPI"; verbose=true)'
+
