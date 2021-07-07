@@ -1,0 +1,7 @@
+cd ~/projects/Oceananigans.jl
+export JULIA_DEPOT_PATH=`pwd`/.julia
+alias julia=~/projects/julia-1.6.1/bin/julia
+. miniconda3/bin/activate
+conda activate py39
+cd benchmark
+julia --project -e 'include("benchmark_shallow_water_model.jl")'
