@@ -12,7 +12,7 @@ spack external find
 spack install openmpi +cuda
 bin/spack install openmpi '~atomics+cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi~singularity~sqlite3+static+thread_multiple+vt+wrapper-rpath' fabrics=ucx schedulers=none
 
-apt install -y lmod
+sudo apt install -y lmod
 source /etc/profile.d/lmod.sh
 spack module lmod refresh -y
 # Configureing JUlia for MPI
