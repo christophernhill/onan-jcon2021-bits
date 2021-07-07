@@ -10,7 +10,7 @@ export JULIA_DEPOT_PATH=`pwd`/.julia
 source /etc/profile.d/lmod.sh 
 module use /home/ubuntu/spack/share/spack/lmod/linux-ubuntu20.04-x86_64/
 module load Core/openmpi/4.1.1-ofh2usm
-julia --project= -e 'using Libdl; p=dlopen("libmpi", RTLD_LAZY; throw_error=false); p=dlopen("libmpi", RTLD_LAZY; throw_error=false); using Pkg; Pkg.build("MPI"; verbose=true)'
+julia --project=. -e 'using Libdl; p=dlopen("libmpi", RTLD_LAZY; throw_error=false); p=dlopen("libmpi", RTLD_LAZY; throw_error=false); using Pkg; Pkg.build("MPI"; verbose=true)'
 
 
 plat="Linux"
