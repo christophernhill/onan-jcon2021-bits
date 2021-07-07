@@ -4,8 +4,9 @@ sudo apt-get install -y python3-dev
 git clone https://github.com/spack/spack.git
 cd spack.git
 . share/spack/setup-env.sh
-sudo apt-get install gfortran.    # OpenMPI needs Fortran compiler too by default
-sudo apt-get install libssl-dev   # Needed by libevent
+sudo apt-get install -y gfortran.    # OpenMPI needs Fortran compiler too by default
+sudo apt-get install -y libssl-dev   # Needed by libevent
+sudo apt-get install -y python3-dev  # Needed by rdma
 spack compiler list
 spack external find
 spack install openmpi +cuda
