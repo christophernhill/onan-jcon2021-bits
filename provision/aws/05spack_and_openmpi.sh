@@ -1,5 +1,6 @@
 # Create spack bits
 cd ~ 
+sudo apt-get install -y python3-dev
 git clone https://github.com/spack/spack.git
 cd spack.git
 . share/spack/setup-env.sh
