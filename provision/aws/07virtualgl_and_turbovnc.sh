@@ -1,4 +1,5 @@
 # Add VirtualGL and TurboVNC
+cd ~
 sudo apt-get install -y virtualgl
 wget https://gigenet.dl.sourceforge.net/project/turbovnc/2.2.6/turbovnc_2.2.6_amd64.deb
 sudo apt-get install -y `pwd`/turbovnc_2.2.6_amd64.deb
