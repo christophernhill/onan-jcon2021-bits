@@ -10,6 +10,7 @@ sudo apt-get install -y python3-dev  # Needed by rdma
 spack compiler list
 export PATH=/usr/local/cuda/bin:$PATH
 spack external find
+# Install fabrics=none and fabrics=ucx variants
 spack install openmpi +cuda
 bin/spack install openmpi '~atomics+cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi~singularity~sqlite3+static+thread_multiple+vt+wrapper-rpath' fabrics=ucx schedulers=none
 
