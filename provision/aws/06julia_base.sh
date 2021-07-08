@@ -8,8 +8,8 @@ export JULIA_DEPOT_PATH=`pwd`/.julia
 # Configureing JUlia for MPI
 # # To set up MPI may need
 source /etc/profile.d/lmod.sh 
-module use /home/ubuntu/spack/share/spack/lmod/linux-ubuntu20.04-x86_64/
-module load Core/openmpi/4.1.1-ofh2usm
+module use /home/ubuntu/spack/share/spack/lmod/linux-ubuntu20.04-x86_64/Core
+module load openmpi
 JMP=dirname `which mpicc` | sed s'/\(.*\)\/bin/\1/'
 export JULIA_MPI_PATH=${JMP}
 julia --project=. -e 'using Libdl; p=dlopen("libmpi", RTLD_LAZY; throw_error=false); p=dlopen("libmpi", RTLD_LAZY; throw_error=false); using Pkg; Pkg.build("MPI"; verbose=true)'
