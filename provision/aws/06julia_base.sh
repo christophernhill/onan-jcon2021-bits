@@ -13,8 +13,9 @@ module load openmpi
 J1=`which mpicc`
 JMP=`dirname $J1 |  sed s'/\(.*\)\/bin/\1/'`
 export JULIA_MPI_PATH=${JMP}
+export UCX_ERROR_SIGNALS="SIGILL,SIGBUS,SIGFPE"  # Needed on Power 9
 julia --project=. -e 'using Libdl; p=dlopen("libmpi", RTLD_LAZY; throw_error=false); p=dlopen("libmpi", RTLD_LAZY; throw_error=false); using Pkg; Pkg.build("MPI"; verbose=true)'
-
+julia --project=. -e 'using Pkg;Pkg.instantiate()'
 
 plat="Linux"
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-${plat}-x86_64.sh
