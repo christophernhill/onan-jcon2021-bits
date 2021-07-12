@@ -1,0 +1,33 @@
+cd ~/projects
+git clone https://github.com/eth-cscs/ImplicitGlobalGrid.jl.git
+cd ImplicitGlobalGrid.jl/
+\rm Manifest.toml
+export JULIA_DEPOT_PATH=`pwd`/.julia
+source /etc/profile.d/lmod.sh
+module use /home/ubuntu/spack/share/spack/lmod/linux-ubuntu20.04-x86_64/Core
+module load openmpi
+J1=`which mpicc`
+JMP=`dirname $J1 |  sed s'/\(.*\)\/bin/\1/'`
+export JULIA_MPI_PATH=${JMP}
+export UCX_ERROR_SIGNALS="SIGILL,SIGBUS,SIGFPE"  # Needed on Power 9
+export IGG_CUDAAWARE_MPI=1
+export CUDA_VISIBLE_DEVICES=0,1,2,3
+export JULIA_CUDA_USE_BINARYBUILDER=false
+julia --project=. -e 'using Libdl; p=dlopen("libmpi", RTLD_LAZY; throw_error=false); p=dlopen("libmpi", RTLD_LAZY; throw_error=false); using Pkg; Pkg.add("MPI"); Pkg.build("MPI"; verbose=true)'
+cp docs/examples/diffusion3D_multigpu_CuArrays_novis.jl .
+vi diffusion3D_multigpu_CuArrays_novis.jl # Set fewer timesteps!
+julia --project=. diffusion3D_multigpu_CuArrays_novis.jl
+export IGG_CUDAAWARE_MPI=1
+export CUDA_VISIBLE_DEVICES=0,1,2,3
+export JULIA_CUDA_USE_BINARYBUILDER=false
+mpiexec -n 2 /home/ubuntu/projects/julia-1.6.1/bin/julia --project=. diffusion3D_multigpu_CuArrays_novis.jl
+mpiexec --mca btl_smcuda_use_cuda_ipc 0 -n 2 /home/ubuntu/projects/julia-1.6.1/bin/julia --project=. diffusion3D_multigpu_CuArrays_novis.jl
+
+
+## module use /home/software/spack/modulefiles/lmod/linux-rhel7-ppc64le/Core /software/modulefiles
+## module load cuda/11.2
+## module load openmpi/3.1.4-pmi-cuda-ucx
+
+
+## spack install 'openmpi@3.1.4%gcc@8.3.0~atomics+cuda~cxx+cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker+pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath' fabrics=ucx schedulers=slurm arch=linux-rhel8-power9le
+
