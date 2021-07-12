@@ -1,3 +1,4 @@
+ssh satori-globus.mit.edu
 salloc -p sched_system_all_8 --mem=0 -N 1 -n 4 --gres=gpu:4 -t 12:00:00
 
 cd ~/projects
