@@ -44,3 +44,6 @@ julia --project=. -e 'using Pkg;Pkg.add("Plots");Pkg.add("TimesDates");Pkg.add("
 cd benchmark 
 julia --project=. -e 'using Libdl; p=dlopen("libmpi", RTLD_LAZY; throw_error=false); p=dlopen("libmpi", RTLD_LAZY; throw_error=false); using Pkg; Pkg.build("MPI"; verbose=true)'
 julia --project=. -e 'using Pkg;Pkg.add("StructArrays")'
+
+
+
