@@ -51,3 +51,8 @@ export JULIA_MPI_BINARY=system
 export JULIA_CUDA_USE_BINARYBUILDER=false
 export JULIA_DEPOT_PATH=`pwd`/.julia
 
+
+## module use /home/cnh/projects/cuda-toolkit/spack/share/spack/lmod/linux-rhel8-ppc64le/
+## module load gcc/8.3.0/openmpi/4.1.1-domze4i
+## module load cuda/11.4
+
