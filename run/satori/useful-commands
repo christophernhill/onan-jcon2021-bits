@@ -28,6 +28,9 @@ mpiexec --mca btl_smcuda_use_cuda_ipc 0 -n 2 /home/ubuntu/projects/julia-1.6.1/b
 # -or-
 export OMPI_MCA_btl_smcuda_use_cuda_ipc=0
 export OMPI_MCA_btl_smcuda_cuda_ipc_verbose=100 # For informational messages
+# Other debug
+export OMPI_MCA_opal_cuda_verbose=10
+export OMPI_MCA_mpi_common_cuda_verbose=100
 
 
 ## module use /home/software/spack/modulefiles/lmod/linux-rhel7-ppc64le/Core /software/modulefiles
