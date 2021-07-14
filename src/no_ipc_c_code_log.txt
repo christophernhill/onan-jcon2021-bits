@@ -1,0 +1,45 @@
+[cnh@service0007 src]$ export OMPI_MCA_btl_smcuda_use_cuda_ipc=0
+[cnh@service0007 src]$ !sr
+srun --pty --gres=gpu:2  -n 2 ./a.out 
+[node0063:188354] CUDA: stage_one_init_ref_count is now 1, initializing
+[node0063:188354] CUDA: Library successfully opened libcuda.so.1
+[node0063:188354] CUDA: successful dlsym of cuStreamCreate
+[node0063:188354] CUDA: successful dlsym of cuCtxGetCurrent
+[node0063:188354] CUDA: successful dlsym of cuEventCreate
+[node0063:188354] CUDA: successful dlsym of cuEventRecord
+[node0063:188354] CUDA: successful dlsym of cuMemHostRegister_v2
+[node0063:188354] CUDA: successful dlsym of cuMemHostUnregister
+[node0063:188354] CUDA: successful dlsym of cuPointerGetAttribute
+[node0063:188354] CUDA: successful dlsym of cuEventQuery
+[node0063:188354] CUDA: successful dlsym of cuEventDestroy_v2
+[node0063:188354] CUDA: successful dlsym of cuStreamWaitEvent
+[node0063:188354] CUDA: successful dlsym of cuMemcpyAsync
+[node0063:188354] CUDA: successful dlsym of cuMemcpy
+[node0063:188354] CUDA: successful dlsym of cuMemFree_v2
+[node0063:188354] CUDA: successful dlsym of cuMemAlloc_v2
+[node0063:188354] CUDA: successful dlsym of cuMemGetAddressRange_v2
+[node0063:188354] CUDA: successful dlsym of cuIpcGetEventHandle
+[node0063:188354] CUDA: successful dlsym of cuIpcOpenEventHandle
+[node0063:188354] CUDA: successful dlsym of cuIpcOpenMemHandle_v2
+[node0063:188354] CUDA: successful dlsym of cuIpcCloseMemHandle
+[node0063:188354] CUDA: successful dlsym of cuIpcGetMemHandle
+[node0063:188354] CUDA: successful dlsym of cuCtxGetDevice
+[node0063:188354] CUDA: successful dlsym of cuDeviceCanAccessPeer
+[node0063:188354] CUDA: successful dlsym of cuDeviceGet
+[node0063:188354] CUDA: successful dlsym of cuPointerSetAttribute
+[node0063:188354] CUDA: successful dlsym of cuCtxSetCurrent
+[node0063:188354] CUDA: successful dlsym of cuEventSynchronize
+[node0063:188354] CUDA: successful dlsym of cuStreamSynchronize
+[node0063:188354] CUDA: successful dlsym of cuStreamDestroy_v2
+[node0063:188354] CUDA: successful dlsym of cuPointerGetAttributes
+[node0063:188354] CUDA: stage_one_init_ref_count is now 2, no need to init
+[node0063:188354] CUDA: support functions initialized
+[node0063:188354] CUDA: entering stage three init
+[node0063:188354] CUDA: cuCtxGetCurrent succeeded
+[node0063:188354] CUDA: cuMemHostRegister OK on rcache smcuda: address=0x200024000008, bufsize=134217728
+[node0063:188354] CUDA: cuMemHostRegister OK on test region
+[node0063:188354] CUDA: the extra gpu memory check is off
+[node0063:188354] CUDA: initialized
+The elapsed time is 0.028181 seconds
+The BW is 5.677529 GB/s
+

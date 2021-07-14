@@ -1,0 +1,456 @@
+$ srun --pty --gres=gpu:2  -n 2 ./a.out 
+
+[node0063:187914] CUDA: stage_one_init_ref_count is now 1, initializing
+[node0063:187914] CUDA: Library successfully opened libcuda.so.1
+[node0063:187914] CUDA: successful dlsym of cuStreamCreate
+[node0063:187914] CUDA: successful dlsym of cuCtxGetCurrent
+[node0063:187914] CUDA: successful dlsym of cuEventCreate
+[node0063:187914] CUDA: successful dlsym of cuEventRecord
+[node0063:187914] CUDA: successful dlsym of cuMemHostRegister_v2
+[node0063:187914] CUDA: successful dlsym of cuMemHostUnregister
+[node0063:187914] CUDA: successful dlsym of cuPointerGetAttribute
+[node0063:187914] CUDA: successful dlsym of cuEventQuery
+[node0063:187914] CUDA: successful dlsym of cuEventDestroy_v2
+[node0063:187914] CUDA: successful dlsym of cuStreamWaitEvent
+[node0063:187914] CUDA: successful dlsym of cuMemcpyAsync
+[node0063:187914] CUDA: successful dlsym of cuMemcpy
+[node0063:187914] CUDA: successful dlsym of cuMemFree_v2
+[node0063:187914] CUDA: successful dlsym of cuMemAlloc_v2
+[node0063:187914] CUDA: successful dlsym of cuMemGetAddressRange_v2
+[node0063:187914] CUDA: successful dlsym of cuIpcGetEventHandle
+[node0063:187914] CUDA: successful dlsym of cuIpcOpenEventHandle
+[node0063:187914] CUDA: successful dlsym of cuIpcOpenMemHandle_v2
+[node0063:187914] CUDA: successful dlsym of cuIpcCloseMemHandle
+[node0063:187914] CUDA: successful dlsym of cuIpcGetMemHandle
+[node0063:187914] CUDA: successful dlsym of cuCtxGetDevice
+[node0063:187914] CUDA: successful dlsym of cuDeviceCanAccessPeer
+[node0063:187914] CUDA: successful dlsym of cuDeviceGet
+[node0063:187914] CUDA: successful dlsym of cuPointerSetAttribute
+[node0063:187914] CUDA: successful dlsym of cuCtxSetCurrent
+[node0063:187914] CUDA: successful dlsym of cuEventSynchronize
+[node0063:187914] CUDA: successful dlsym of cuStreamSynchronize
+[node0063:187914] CUDA: successful dlsym of cuStreamDestroy_v2
+[node0063:187914] CUDA: successful dlsym of cuPointerGetAttributes
+[node0063:187914] CUDA: stage_one_init_ref_count is now 2, no need to init
+[node0063:187914] CUDA: support functions initialized
+[node0063:187914] CUDA: entering stage three init
+[node0063:187914] CUDA: cuCtxGetCurrent succeeded
+[node0063:187914] CUDA: cuMemHostRegister OK on rcache smcuda: address=0x200024000008, bufsize=134217728
+[node0063:187914] CUDA: cuMemHostRegister OK on test region
+[node0063:187914] CUDA: the extra gpu memory check is off
+[node0063:187914] CUDA: initialized
+[node0063:187914] Sending CUDA IPC REQ (try=1): myrank=0, mydev=0, peerrank=1
+[node0063:187914] Not sending CUDA IPC ACK because request already initiated
+[node0063:187914] Received CUDA IPC ACK, notifying PML: myrank=0, peerrank=1
+[node0063:187914] BTL smcuda: rank=0 enabling CUDA IPC to rank=1 on node=node0063 
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053200000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053200000, size=8000000, pbase=0x200053200000, psize=8000000 
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053a00000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053a00000, size=8000000, pbase=0x200053a00000, psize=8000000 
+[node0063:187914] CUDA: cuIpcOpenMemHandle passed: base=0x200054200000 (remote base=0x200053200000,size=8000000)
+[node0063:187914] CUDA: cuMemcpyAsync passed: dst=0x200053a00000, src=0x200054200000, size=8000000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned 0
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053a00000
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053200000
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053200000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053200000, size=8000000, pbase=0x200053200000, psize=8000000 
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053a00000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053a00000, size=8000000, pbase=0x200053a00000, psize=8000000 
+[node0063:187914] CUDA: cuMemcpyAsync passed: dst=0x200053a00000, src=0x200054200000, size=8000000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned 0
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053a00000
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053200000
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053200000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053200000, size=8000000, pbase=0x200053200000, psize=8000000 
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053a00000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053a00000, size=8000000, pbase=0x200053a00000, psize=8000000 
+[node0063:187914] CUDA: cuMemcpyAsync passed: dst=0x200053a00000, src=0x200054200000, size=8000000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053200000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned 0
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053a00000
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053200000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053200000, size=8000000, pbase=0x200053200000, psize=8000000 
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053a00000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053a00000, size=8000000, pbase=0x200053a00000, psize=8000000 
+[node0063:187914] CUDA: cuMemcpyAsync passed: dst=0x200053a00000, src=0x200054200000, size=8000000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053200000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned 0
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053a00000
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053200000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053200000, size=8000000, pbase=0x200053200000, psize=8000000 
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053a00000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053a00000, size=8000000, pbase=0x200053a00000, psize=8000000 
+[node0063:187914] CUDA: cuMemcpyAsync passed: dst=0x200053a00000, src=0x200054200000, size=8000000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053200000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned 0
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053a00000
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053200000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053200000, size=8000000, pbase=0x200053200000, psize=8000000 
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053a00000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053a00000, size=8000000, pbase=0x200053a00000, psize=8000000 
+[node0063:187914] CUDA: cuMemcpyAsync passed: dst=0x200053a00000, src=0x200054200000, size=8000000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned 0
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053a00000
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053200000
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053200000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053200000, size=8000000, pbase=0x200053200000, psize=8000000 
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053a00000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053a00000, size=8000000, pbase=0x200053a00000, psize=8000000 
+[node0063:187914] CUDA: cuMemcpyAsync passed: dst=0x200053a00000, src=0x200054200000, size=8000000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053200000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned 0
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053a00000
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053200000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053200000, size=8000000, pbase=0x200053200000, psize=8000000 
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053a00000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053a00000, size=8000000, pbase=0x200053a00000, psize=8000000 
+[node0063:187914] CUDA: cuMemcpyAsync passed: dst=0x200053a00000, src=0x200054200000, size=8000000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned 0
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053a00000
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053200000
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053200000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053200000, size=8000000, pbase=0x200053200000, psize=8000000 
+[node0063:187914] CUDA: cuIpcGetMemHandle passed: base=0x200053a00000 size=8000000
+[node0063:187914] CUDA: cuMemGetAddressRange passed: addr=0x200053a00000, size=8000000, pbase=0x200053a00000, psize=8000000 
+[node0063:187914] CUDA: cuMemcpyAsync passed: dst=0x200053a00000, src=0x200054200000, size=8000000
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned CUDA_ERROR_NOT_READY
+[node0063:187914] CUDA: progress_one_cuda_ipc_event, outstanding_events=1
+[node0063:187914] CUDA: cuEventQuery returned 0
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053a00000
+[node0063:187914] CUDA: cuda_ungetmemhandle (no-op): base=0x200053200000
+The elapsed time is 0.018314 seconds
+The BW is 8.736646 GB/s
+
+
+[cnh@service0007 src]$ env | grep OMP
+OMPI_MCA_mpi_common_cuda_verbose=100
+OMPI_MCA_btl_smcuda_use_cuda_ipc=1
+OMPI_MCA_opal_cuda_verbose=10
+OMPI_MCA_btl_smcuda_cuda_ipc_verbose=100
+
+
