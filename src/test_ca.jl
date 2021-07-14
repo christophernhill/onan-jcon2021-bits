@@ -2,12 +2,13 @@ using MPI
 using CUDA
 using TickTock
 
-lr=parse(Int64,ENV["OMPI_COMM_WORLD_LOCAL_RANK"])
-CUDA.device!(lr)
-dev=device()
+## lr=parse(Int64,ENV["OMPI_COMM_WORLD_LOCAL_RANK"])
+## lr=parse(Int64,ENV["SLURM_LOCALID"])
+## CUDA.device!(lr)
+## dev=device()
 ## pool=CuMemoryPool(dev,alloc_type=CUDA.CU_MEM_ALLOCATION_TYPE_PINNED,handle_type=CUDA.CU_MEM_HANDLE_TYPE_POSIX_FILE_DESCRIPTOR)
-pool=CuMemoryPool(dev,alloc_type=CUDA.CU_MEM_ALLOCATION_TYPE_PINNED,handle_type=CUDA.CU_MEM_HANDLE_TYPE_NONE)
-memory_pool!(dev,pool)
+## pool=CuMemoryPool(dev,alloc_type=CUDA.CU_MEM_ALLOCATION_TYPE_PINNED,handle_type=CUDA.CU_MEM_HANDLE_TYPE_NONE)
+## memory_pool!(dev,pool)
 
 MPI.Init()
 
@@ -20,15 +21,15 @@ if R != 2
 end
 
 # See: https://github.com/CliMA/ClimateMachine.jl/blob/2def0d653fcef3d069e816844fa4ec5d745c84d1/src/Driver/Driver.jl#L40-L43
-## local_comm = MPI.Comm_split_type(comm, MPI.MPI_COMM_TYPE_SHARED, MPI.Comm_rank(comm))
-## CUDA.device!(MPI.Comm_rank(local_comm) % length(devices()))
-## dev=device()
-## pool=CuMemoryPool(dev,alloc_type=CUDA.CU_MEM_ALLOCATION_TYPE_PINNED,handle_type=CUDA.CU_MEM_HANDLE_TYPE_POSIX_FILE_DESCRIPTOR)
-## memory_pool!(dev,pool)
+local_comm = MPI.Comm_split_type(comm, MPI.MPI_COMM_TYPE_SHARED, MPI.Comm_rank(comm))
+CUDA.device!(MPI.Comm_rank(local_comm) % length(devices()))
+dev=device()
+pool=CuMemoryPool(dev,alloc_type=CUDA.CU_MEM_ALLOCATION_TYPE_PINNED,handle_type=CUDA.CU_MEM_HANDLE_TYPE_POSIX_FILE_DESCRIPTOR)
+memory_pool!(dev,pool)
 
 
-nel=1000000
-nm =1
+nel=10000000
+nm =50
 
 sendArr = CUDA.zeros(Float64, nel)
 recvArr = CUDA.zeros(Float64, nel)
@@ -55,14 +56,22 @@ for nmesg = 1:4
  tick();tok()
 end
 
-tick()
-for nmesg = 1:nm
- rreq  = MPI.Irecv!(recvArr, recv_from_rank, recv_from_tag, comm)
- sreq  = MPI.Isend( sendArr, send_to_rank  , sender_tag,    comm)
- stats = MPI.Waitall!([rreq, sreq])
+function sr(nm)
+ for nmesg = 1:nm
+  rreq  = MPI.Irecv!(recvArr, recv_from_rank, recv_from_tag, comm)
+  sreq  = MPI.Isend( sendArr, send_to_rank  , sender_tag,    comm)
+  stats = MPI.Waitall!([rreq, sreq])
+ end
 end
+
+sr(1)
+sr(1)
+sr(1)
+
+tick()
+sr(nm)
 elap=tok()
 
-println("elap = ",elap)
+println("elap = ",elap, " BW (GB/s) ", 2*nel*nm*8/elap/1e9)
 
 MPI.Barrier(comm)
