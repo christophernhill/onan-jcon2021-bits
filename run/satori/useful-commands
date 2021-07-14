@@ -27,6 +27,7 @@ mpiexec -n 2 /home/ubuntu/projects/julia-1.6.1/bin/julia --project=. diffusion3D
 mpiexec --mca btl_smcuda_use_cuda_ipc 0 -n 2 /home/ubuntu/projects/julia-1.6.1/bin/julia --project=. diffusion3D_multigpu_CuArrays_novis.jl
 # -or-
 export OMPI_MCA_btl_smcuda_use_cuda_ipc=0
+export OMPI_MCA_btl_smcuda_use_cuda_ipc=100 # For informational messages
 
 
 ## module use /home/software/spack/modulefiles/lmod/linux-rhel7-ppc64le/Core /software/modulefiles
