@@ -25,6 +25,12 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 export JULIA_CUDA_USE_BINARYBUILDER=false
 mpiexec -n 2 /home/ubuntu/projects/julia-1.6.1/bin/julia --project=. diffusion3D_multigpu_CuArrays_novis.jl
 mpiexec --mca btl_smcuda_use_cuda_ipc 0 -n 2 /home/ubuntu/projects/julia-1.6.1/bin/julia --project=. diffusion3D_multigpu_CuArrays_novis.jl
+# -or-
+export OMPI_MCA_btl_smcuda_use_cuda_ipc=0
+export OMPI_MCA_btl_smcuda_cuda_ipc_verbose=100 # For informational messages
+# Other debug
+export OMPI_MCA_opal_cuda_verbose=10
+export OMPI_MCA_mpi_common_cuda_verbose=100
 
 
 ## module use /home/software/spack/modulefiles/lmod/linux-rhel7-ppc64le/Core /software/modulefiles
@@ -44,4 +50,9 @@ export UCX_ERROR_SIGNALS="SIGILL,SIGBUS,SIGFPE"
 export JULIA_MPI_BINARY=system
 export JULIA_CUDA_USE_BINARYBUILDER=false
 export JULIA_DEPOT_PATH=`pwd`/.julia
+
+
+## module use /home/cnh/projects/cuda-toolkit/spack/share/spack/lmod/linux-rhel8-ppc64le/
+## module load gcc/8.3.0/openmpi/4.1.1-domze4i
+## module load cuda/11.4
 
