@@ -7,6 +7,9 @@ cd spack
 sudo apt-get install -y gfortran     # OpenMPI needs Fortran compiler too by default
 sudo apt-get install -y libssl-dev   # Needed by libevent
 sudo apt-get install -y python3-dev  # Needed by rdma
+sudo apt install -y unzip
+sudo apt install -y make
+sudo apt install -y g++
 spack compiler list
 export PATH=/usr/local/cuda/bin:$PATH
 spack external find
