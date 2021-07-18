@@ -1,0 +1,31 @@
+module purge all
+module use /home/cnh/projects/cuda-toolkit/spack/share/spack/lmod/linux-rhel8-ppc64le/
+module load gcc/8.3.0/openmpi/4.1.1-domze4i
+module load cuda/11.4 
+## module load cuda/11.2
+
+export JULIA_DEPOT_PATH=`pwd`/.julia
+J1=`which mpicc`
+JMP=`dirname $J1 |  sed s'/\(.*\)\/bin/\1/'`
+export JULIA_MPI_PATH=${JMP}
+export UCX_ERROR_SIGNALS="SIGILL,SIGBUS,SIGFPE"  # Needed on Power 9
+export CUDA_VISIBLE_DEVICES=0,1,2,3
+export JULIA_CUDA_USE_BINARYBUILDER=false
+
+unset JULIA_CUDA_MEMORY_POOL
+## export JULIA_CUDA_MEMORY_POOL=binned
+
+\rm -fr .julia/ Project.toml Manifest.toml
+
+srun -n 1 ~/projects/mpi-onan-etc-aghhhhh/julia-1.6.1/bin/julia  --project=. -e \
+'using Libdl; p=dlopen("libmpi", RTLD_LAZY; throw_error=false); p=dlopen("libmpi", RTLD_LAZY; throw_error=false); using Pkg; Pkg.add("MPI"); Pkg.build("MPI"; verbose=true)'
+
+srun -n 1 ~/projects/mpi-onan-etc-aghhhhh/julia-1.6.1/bin/julia  --project=. -e \
+'using Pkg;Pkg.add(name="CUDA",version="v3.3.3"); Pkg.add("TickTock")'
+
+# srun -n 1 ~/projects/mpi-onan-etc-aghhhhh/julia-1.6.1/bin/julia  --project=. -e \
+# 'using Pkg;Pkg.add(name="CUDA",version="v3.2.1"); Pkg.add("TickTock")'
+
+srun -n 1 ~/projects/mpi-onan-etc-aghhhhh/julia-1.6.1/bin/julia  --project=. -e \
+'using MPI; using CUDA; using TickTock'
+
