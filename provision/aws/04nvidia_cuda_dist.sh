@@ -13,3 +13,7 @@ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda
 sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
 sudo apt install -y cuda
 
+## For a version e.g.
+## sudo apt install -y cuda-10-2=10.2.89-1
+
+
