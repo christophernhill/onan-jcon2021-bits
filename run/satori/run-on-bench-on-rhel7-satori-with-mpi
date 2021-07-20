@@ -1,0 +1,61 @@
+## salloc  --mem=500G -n 2 --gres=gpu:2 -t 12:00:00
+
+ROOTDIR=/nobackup/users/cnh/projects/henry-test
+mkdir -p ${ROOTDIR}
+cd    ${ROOTDIR}
+wget https://julialang-s3.julialang.org/bin/linux/ppc64le/1.6/julia-1.6.2-linux-ppc64le.tar.gz
+tar -xzvf julia-1.6.2-linux-ppc64le.tar.gz
+git clone https://github.com/CliMA/Oceananigans.jl.git
+cd Oceananigans.jl/benchmark
+\rm Manifest.jl
+
+module purge all
+module load spack
+module load gcc/8.3.0 # to get libquadmath
+module load julia/1.3.0
+module load cuda/10.1.243
+module load openmpi/3.1.4-pmi-cuda
+
+export JULIA_DEPOT_PATH=`pwd`/.julia
+J1=`which mpicc`
+JMP=`dirname $J1 |  sed s'/\(.*\)\/bin/\1/'`
+export JULIA_MPI_PATH=${JMP}
+export UCX_ERROR_SIGNALS="SIGILL,SIGBUS,SIGFPE"  # Needed on Power 9
+export IGG_CUDAAWARE_MPI=1
+export CUDA_VISIBLE_DEVICES=0,1,2,3
+export JULIA_CUDA_USE_BINARYBUILDER=false
+
+cd ..
+srun --pty -n 1 ${ROOTDIR}/julia-1.6.2/bin/julia --project=. -e 'using Pkg; pkg"instantiate"; pkg"build MPI"'
+cd benchmark
+srun --pty -n 1 ${ROOTDIR}/julia-1.6.2/bin/julia --project=. -e 'push!(LOAD_PATH, joinpath(@__DIR__, ".."));using Pkg; pkg"instantiate"; pkg"build MPI"'
+srun --pty -n 1 ${ROOTDIR}/julia-1.6.2/bin/julia --project=. -e 'push!(LOAD_PATH, joinpath(@__DIR__, ".."));using Pkg; pkg"instantiate"; pkg"precompile"'
+
+cat > test_foo.jl <<'EOF'
+
+push!(LOAD_PATH, joinpath(@__DIR__, ".."))
+
+using Logging
+using MPI
+using JLD2
+using BenchmarkTools
+
+using Oceananigans
+using Oceananigans.Distributed
+using Benchmarks
+
+Logging.global_logger(OceananigansLogger())
+
+MPI.Init()
+
+      comm = MPI.COMM_WORLD
+local_rank = MPI.Comm_rank(comm)
+         R = MPI.Comm_size(comm)
+
+println(R)
+
+MPI.Barrier(comm)
+
+EOF
+
+srun --pty -n 2 ${ROOTDIR}/julia-1.6.2/bin/julia --project=. test_foo.jl
