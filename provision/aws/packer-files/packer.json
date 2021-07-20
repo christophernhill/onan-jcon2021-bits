@@ -1,0 +1,54 @@
+{
+   "variables": {
+	   "vpc": "{{env `BUILD_VPC_ID`}}",
+	   "subnet": "{{env `BUILD_SUBNET_ID`}}",
+	   "aws_region": "{{env `AWS_REGION`}}",
+	   "ami_name": "my-oceananigans-test-ami-{{isotime}}",
+	   "access_key": "{{env `AWS_ACCESS_KEY`}}",
+	   "secret_key": "{{env `AWS_SECRET_KEY`}}",
+	   "ssh_keypair": "{{env `SSH_KEYPAIR`}}",
+	   "ssh_private_key_file": "{{env `SSH_PRIVATE_KEY_FILE`}}"
+   },
+   "builders": [{
+	   "name": "AWS AMI Builder",
+	   "access_key": "{{user `access_key`}}",
+	   "secret_key": "{{user `secret_key`}}",
+	   "type": "amazon-ebs",
+	   "ami_virtualization_type": "hvm",
+           "region": "{{user `aws_region`}}",
+	   "source_ami": "ami-042e8287309f5df03",
+	   "associate_public_ip_address": "true",
+	   "ebs_optimized": "true",
+	   "vpc_id": "{{user `vpc`}}",
+	   "subnet_id": "{{user `subnet`}}",
+	   "instance_type": "p3.2xlarge",
+	   "ssh_username": "ubuntu",
+	   "ami_name": "{{user `ami_name` | clean_resource_name}}",
+	   "ssh_keypair_name": "{{user `ssh_keypair`}}",
+	   "ssh_private_key_file": "{{user `ssh_private_key_file`}}",
+	   "tags": {
+		   "Name": "{{user `ami_name`}}"
+	   },
+	   "launch_block_device_mappings": [
+              {
+               "device_name": "/dev/sda1",
+               "volume_size": 80,
+               "volume_type": "gp2",
+               "delete_on_termination": true
+             }
+	  ]
+   }],
+   "provisioners": [{
+	   "type": "shell",
+           "script": "stage0.sh",
+	   "valid_exit_codes": [0, 1, 2300218],
+	   "expect_disconnect": "true"
+   },
+   {
+	   "type": "shell",
+	   "pause_before": "10s",
+           "script": "stage1.sh",
+	   "valid_exit_codes": [0, 1, 2300218],
+	   "expect_disconnect": "true"
+   }]
+}
